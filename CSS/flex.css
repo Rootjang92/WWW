@@ -1,0 +1,82 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+body {
+  background-color: #FFF;
+  font-size: 16px;
+  margin: 0;
+}
+h2 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+/* command+/ */
+/* 레이아웃 */
+.wrapper{
+  /* 해당요소 선택은  마침표 클래스속성값이 wrapper인 것으 찾음.*/
+  background-color: yellow;
+  /* border top,right,bottom,left / style / color를 축약 - 단축표기법 */
+  /* solid : 실선  */ 
+  /* 50은 위, 10은 우, 100은 아래 200은 왼쪽 -> 시계방향*/
+  /* auto : 남은 여백을 자동으로 설정한다. -> 정렬한 것 처럼 보임 */
+}
+/* grouping은 컴마로 */
+.header, .visual, .main, .slogan, .footer{
+  width: 940px;
+  margin: 0 auto;
+}
+.header{
+  background-color:pink;
+  height: 10vh;
+  /* viewprot height : vh : 화면에 보이는 크기 */
+}
+.visual{
+  background-color:lime;
+  height: 10vh;  
+}
+.main{
+  background-color:skyblue;
+  padding: 30px 0;
+  /* 독립적으로 block box를 만듬. */
+ display: flex;
+ justify-content: space-evenly;
+ }
+
+
+/* .clearfix{
+  clear:
+} */
+/* rgba -> 투명도조절 */
+/* hsla -> 색조정*/
+/* commit */
+  .group{
+    height: 20vh;
+    /* normal flow 상 그룹3 높이만큼 고정됨. */
+    
+  }
+  .group1{
+    background-color: rgba(255,255,255,.5);
+    width: 250px;
+  }
+  .group2{
+    background-color: hsla(120, 20%, 60%, 0.5);
+    width: 380px;
+  }
+  .group3{
+    background-color: tomato;
+    width: 190px;
+    }
+.slogan{
+  background-color: blueviolet;
+  height: 10vh;
+  
+  /* clear : float해제 강제로 margin을 추가하는 개념.*/
+}
+.footer-bg{
+  background-color: orange;
+}
+.footer{
+  background-color: silver;
+  height: 10vh;
+}
