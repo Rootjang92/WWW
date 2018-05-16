@@ -1,21 +1,44 @@
+@import url("normalize.css");
 *, *::before, *::after{
   box-sizing: border-box;
+}
+/* normalize 파일에서 생긴 여백을 없애주기 위해 설정. */
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+/* 목록 스타일 없애기 list-style-type */
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+/* 숨김 컨텐츠 */
+.readable-hidden{
+  background-color: yellow;
+  position: absolute;
+  left: -9999em;
 }
 body {
   background-color: #FFF;
   font-size: 16px;
-  margin: 0;
+  color: #181818;
 }
 h2 {
   margin: 0;
   font-size: 1em;
-  font-weight: normal;
+  font-weight: normal
 }
+
 /* command+/ */
 /* 레이아웃 */
 .wrapper{
   /* 해당요소 선택은  마침표 클래스속성값이 wrapper인 것으 찾음.*/
-  background-color: yellow;
+  background-color: silver;
   /* border top,right,bottom,left / style / color를 축약 - 단축표기법 */
   /* solid : 실선  */ 
   /* 50은 위, 10은 우, 100은 아래 200은 왼쪽 -> 시계방향*/
@@ -27,10 +50,44 @@ h2 {
   margin: 0 auto;
 }
 .header{
-  background-color:pink;
-  height: 10vh;
+  background-color: #fff;
   /* viewprot height : vh : 화면에 보이는 크기 */
+  padding: 0 30px;
+  position: relative;
 }
+/* logo */
+.logo{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+/* 멤버 링크 */
+.member{
+  text-align: right;
+  font-size: 0;
+  padding:10px 0;
+  position: relative;
+  right: -10px;
+}
+.member li{
+  display: inline-block;
+  /* inline-block : 보이는 건 inline, 성격은 block */
+  /* float와 차이 : 익명의 inline박스가 삽입(li요소 사이에)되어 공백이 생김. */
+  font-size: 16px;
+  text-transform: uppercase; 
+  /* 소 -> 대문자 */
+  
+ }
+ .member li:nth-child(n+2)::before{
+   /* ()는 구조선택자 */
+   content: ":";
+ }
+ .member a{
+   padding: 5px 10px;
+   
+   
+   /* a태그 기준으로 패딩값을 줌. */
+ }
 .visual{
   background-color:lime;
   height: 10vh;  
