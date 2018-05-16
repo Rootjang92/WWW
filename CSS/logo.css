@@ -1,0 +1,118 @@
+@import url("normalize.css");
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+/* normalize 파일에서 생긴 여백을 없애주기 위해 설정. */
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+/* 목록 스타일 없애기 list-style-type */
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+/* 숨김 컨텐츠 */
+.readable-hidden{
+  background-color: yellow;
+  position: absolute;
+  left: -9999em;
+}
+body {
+  background-color: #FFF;
+  font-size: 16px;
+  color: #181818;
+}
+h2 {
+  margin: 0;
+  font-size: 1em;
+  font-weight: normal
+}
+
+/* command+/ */
+/* 레이아웃 */
+.wrapper{
+  /* 해당요소 선택은  마침표 클래스속성값이 wrapper인 것으 찾음.*/
+  background-color: silver;
+  /* border top,right,bottom,left / style / color를 축약 - 단축표기법 */
+  /* solid : 실선  */ 
+  /* 50은 위, 10은 우, 100은 아래 200은 왼쪽 -> 시계방향*/
+  /* auto : 남은 여백을 자동으로 설정한다. -> 정렬한 것 처럼 보임 */
+}
+/* grouping은 컴마로 */
+.header, .visual, .main, .slogan, .footer{
+  width: 940px;
+  margin: 0 auto;
+}
+.header{
+  background-color: #fff;
+  /* viewprot height : vh : 화면에 보이는 크기 */
+  padding: 0 30px;
+  position: relative;
+}
+/* logo */
+.logo{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+.visual{
+  background-color:lime;
+  height: 10vh;  
+}
+.main{
+  background-color:skyblue;
+  /* 독립적으로 block box를 만듬. */
+  padding: 30px 15px;
+}
+
+.clearfix::after{
+  content: "";
+  background-color: black;
+  color: white;
+  clear: both;
+  display: block;
+}
+/* .clearfix{
+  clear:
+} */
+/* rgba -> 투명도조절 */
+/* hsla -> 색조정*/
+/* commit */
+  .group{
+    height: 30vh;
+    float: left;
+    /* normal flow 상 그룹3 높이만큼 고정됨. */
+    margin: 0 15px;
+  }
+  .group1{
+    background-color: rgba(255,255,255,.5);
+    width: 250px;
+    
+  }
+  .group2{
+    background-color: hsla(120, 20%, 60%, 0.5);
+    width: 380px;
+  }
+  .group3{
+    background-color: tomato;
+    width: 190px;
+    }
+.slogan{
+  background-color: blueviolet;
+  height: 10vh;
+  clear: both;
+  /* clear : float해제 강제로 margin을 추가하는 개념.*/
+}
+.footer-bg{
+  background-color: orange;
+}
+.footer{
+  background-color: silver;
+  height: 10vh;
+}
