@@ -62,11 +62,13 @@ h2 {
   }
   .group1{
     background-color: rgba(255,255,255,.5);
+    /* rgha : 색상 투명도 조절 */
     width: 250px;
     
   }
   .group2{
     background-color: hsla(120, 20%, 60%, 0.5);
+    /* 채도,명도 조절 */
     width: 380px;
   }
   .group3{
