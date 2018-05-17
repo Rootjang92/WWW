@@ -1,4 +1,6 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("normalize.css");
+@import url("fontello.css");
 *, *::before, *::after{
   box-sizing: border-box;
 }
@@ -19,14 +21,27 @@ a{
 }
 /* 숨김 컨텐츠 */
 .readable-hidden{
-  background-color: yellow;
   position: absolute;
-  left: -9999em;
+  /* left: -9999em; */
+  width: 1px;
+  height: 1px;
+  /* 크기0은  위험한 작업 */
+  clip: rect(0, 0, 0, 0);
+  /* cutting처리 */
+  margin: -1px;
+  /* 다른 브라우저에서도 작동하도록 마진값. */
+  overflow: hidden;
 }
+html{
+  font-size: 10px;
+}
+
 body {
   background-color: #FFF;
   font-size: 16px;
   color: #181818;
+  font-family: 'spoqa Han Sans';
+  font-size: 1.4rem;
 }
 h2 {
   margin: 0;
@@ -39,6 +54,11 @@ h2 {
 .wrapper{
   /* 해당요소 선택은  마침표 클래스속성값이 wrapper인 것으 찾음.*/
   background-color: silver;
+  background-image: url(images/bg_flower.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  
+  /* default는 scroll 값.(attachmemt) */
   /* border top,right,bottom,left / style / color를 축약 - 단축표기법 */
   /* solid : 실선  */ 
   /* 50은 위, 10은 우, 100은 아래 200은 왼쪽 -> 시계방향*/
@@ -52,8 +72,9 @@ h2 {
 .header{
   background-color: #fff;
   /* viewprot height : vh : 화면에 보이는 크기 */
-  padding: 0 30px;
+  padding: 0 30px 40px;
   position: relative;
+  border-radius: 0 0 15px 15px;
 }
 /* logo */
 .logo{
@@ -73,10 +94,10 @@ h2 {
   display: inline-block;
   /* inline-block : 보이는 건 inline, 성격은 block */
   /* float와 차이 : 익명의 inline박스가 삽입(li요소 사이에)되어 공백이 생김. */
-  font-size: 16px;
+  font-size: 1.4rem;
   text-transform: uppercase; 
   /* 소 -> 대문자 */
-  
+
  }
  .member li:nth-child(n+2)::before{
    /* ()는 구조선택자 */
@@ -88,14 +109,121 @@ h2 {
    
    /* a태그 기준으로 패딩값을 줌. */
  }
+ /* 메인 메뉴 */
+ .menu{
+   background: linear-gradient(to bottom, #ef4507 0%,#ef4507 36%,#ef4507 65%,#bf6e4e 100%);
+   background-color: #ef4507;
+   border-top: 2px solid #000;
+   border-radius: 0 0 5px 5px;
+   padding-left: 225px;
+   height: 47px;
+   
+   /* x축 / y축 */
+   /* border-bottom-right-radius: 100px 50px;
+   border-bottom-left-radius: 100px 50px; */
+   /* box-shadow: 0 20px 0 0 #000; */
+  
+   
+   
+   /* background element's */
+   /* background-image: linear-gradient(-45deg, red 0%, green 30%, blue 100%); */
+   /* background-image: repeating-linear-gradient(-45deg, red 0, red 50px, green 50px, green 100px); */
+   /* background-color: yellow
+   background-image: url("images/ani_flower_03.png");
+   background-repeat: no-repeat;
+   background-position: 50% 30%;
+   background-size: 200px 200px; */
+   /* background: yellow url("images/ani_flower_03.png") no-repeat 50% 30% /200px 200px; */
+   /* outline: 10px dashed blue; */
+   /* box-shadow: 0 -5px 0 0 green; */
+   /* 배경 */
+ }
+ .menu-item{
+   float: left;
+   position: relative;
+  }
+ .menu-item-text{
+    line-height: 45px;
+    display: block;
+    padding: 0 20px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+ }
+ /* 글자에 마우스 대면 언더라인 생기게 하기. */
+ .menu-item-text:hover::after{
+   content: "";
+   background-color: #000;
+   display: block;
+   height: 2px;
+ }
+ .menu-item-text:hover{
+   color: #ff0;
+   cursor: pointer;
+ }
+ .sub-menu{
+   position: absolute;
+   top: 50px;
+   /* !important : 중요도 올리는 요소 */
+   white-space: nowrap;
+ }
+ /* hover: 상황 선택 */
+ .sub-menu:hover{
+   cursor: pointer;
+ }
+ .sub-menu li{
+   display: inline-block;
+ }
+ .sub-menu a{
+   display: inline-block;
+   padding: 8px 5px 10px 0;
+   margin-right: 10px;
+
+ }
+ .sub-menu a::before{
+   font-family: "fontello";
+   content: '\f192';
+ }
+ .sub-menu a:hover:before{
+    content: '\e800';
+ }
+ .menu-item:nth-child(1) .sub-menu{
+   display: none;
+   left: 0;
+ }
+ .menu-item:nth-child(2) .sub-menu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(3) .sub-menu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(4) .sub-menu{
+  display: none;
+  right: 0;
+}
+.menu-item:nth-child(5) .sub-menu{
+  display: none;
+  right: 0;
+}
+.menu-item:nth-child(6) .sub-menu{
+  display: none;
+  right: 0;
+}
+ /* 비주얼 */
 .visual{
   background-color:lime;
   height: 10vh;  
 }
+/* 메인콘텐츠 */
 .main{
   background-color:skyblue;
   /* 독립적으로 block box를 만듬. */
   padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
 }
 
 .clearfix::after{
