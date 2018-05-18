@@ -1,3 +1,5 @@
+@charset "utf-8";
+/* 인코딩은 무조건 첫줄에 */
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("normalize.css");
 @import url("fontello.css");
@@ -43,12 +45,6 @@ body {
   font-family: 'spoqa Han Sans';
   font-size: 1.4rem;
 }
-h2 {
-  margin: 0;
-  font-size: 1em;
-  font-weight: normal
-}
-
 /* command+/ */
 /* 레이아웃 */
 .wrapper{
@@ -214,9 +210,67 @@ h2 {
   right: 0;
 }
  /* 비주얼 */
+ @keyframes flowerAni{
+   0%{
+     opacity: 1;
+   }
+   100%{
+     opacity: 0;
+   }
+ }
+ @keyframes textAni {
+     0%{
+       font-size: 12px;
+       color: rgba(0, 0, 0, 0);
+       transform: tranlate(0,0);
+       opacity: 1;
+     }
+     100%{
+       font-size: 24px;
+       color: rgba(0, 0, 0, 1);
+       transform: translate(400px,75px);
+       opacity: 1;
+     }
+     /* 이동하기 : top,left지정 /  position: absolute 지정 / padding지정 / width지정 */
+    }
 .visual{
-  background-color:lime;
-  height: 10vh;  
+  height: 120px;
+  position: relative;
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: flowerAni 2s infinite alternate;
+}
+.visual::before{
+  /* background-image: url("images/ani_flower_01.png"),url("images/ani_flower_02.png");
+  background-repeat: no-repeat;
+  background-position: 0 -10px, 670px 0; */
+  background: url("images/ani_flower_01.png") no-repeat 0 -15px, url("images/ani_flower_02.png") no-repeat 670px 0;
+}
+.visual::after{
+  animation-delay: 1s;
+  background: url("images/ani_flower_03.png") no-repeat 300px -15px, url("images/ani_flower_04.png") no-repeat 800px 0;
+}
+.visual-text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* animation-name: textAni;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0,-0.46,.83,.67);
+  animation-delay: 2s; */
+  animation: textAni 5000ms forwards 3 alternate ease-in-out 2s;
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+  z-index: 10;
 }
 /* 메인콘텐츠 */
 .main{
@@ -225,7 +279,6 @@ h2 {
   padding: 30px 15px;
   border-radius: 15px 15px 0 0;
 }
-
 .clearfix::after{
   content: "";
   background-color: black;
