@@ -1,4 +1,6 @@
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("normalize.css");
+@import url("fontello.css");
 *, *::before, *::after{
   box-sizing: border-box;
 }
@@ -19,25 +21,38 @@ a{
 }
 /* 숨김 컨텐츠 */
 .readable-hidden{
-  background-color: yellow;
   position: absolute;
-  left: -9999em;
+  /* left: -9999em; */
+  width: 1px;
+  height: 1px;
+  /* 크기0은  위험한 작업 */
+  clip: rect(0, 0, 0, 0);
+  /* cutting처리 */
+  margin: -1px;
+  /* 다른 브라우저에서도 작동하도록 마진값. */
+  overflow: hidden;
 }
+html{
+  font-size: 10px;
+}
+
 body {
   background-color: #FFF;
   font-size: 16px;
   color: #181818;
-}
-h2 {
-  margin: 0;
-  font-size: 1em;
-  font-weight: normal
+  font-family: 'spoqa Han Sans';
+  font-size: 1.4rem;
 }
 /* command+/ */
 /* 레이아웃 */
 .wrapper{
   /* 해당요소 선택은  마침표 클래스속성값이 wrapper인 것으 찾음.*/
-  background-color: yellow;
+  background-color: silver;
+  background-image: url(images/bg_flower.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  
+  /* default는 scroll 값.(attachmemt) */
   /* border top,right,bottom,left / style / color를 축약 - 단축표기법 */
   /* solid : 실선  */ 
   /* 50은 위, 10은 우, 100은 아래 200은 왼쪽 -> 시계방향*/
@@ -49,33 +64,100 @@ h2 {
   margin: 0 auto;
 }
 .header{
-  background-color: #fff;
+  background-color: white;
   /* viewprot height : vh : 화면에 보이는 크기 */
-  padding: 0 30px;
   position: relative;
+  padding: 0 30px 40px;
 }
 /* logo */
 .logo{
-  position: absolute;
-  top: 45px;
-  left: 65px;
+  padding: 45px 0 0 35px;
+  /* padding: 45px 0 0 65px; */
 }
+/* 멤버링크  */
 .member {
   display: flex;
   justify-content: flex-end;
-  padding: 10px 0;
-  position: relative;
+  margin-top: -70px;
+  margin-right: -10px;
+  /* position: absolute;
+  top: 0px;
+  right: 0px; */ 
 }
 .member li{
-  display: inline-block;
+  /* display: inline-block; */
+  /* inline-block : 보이는 건 inline, 성격은 block */
+  /* float와 차이 : 익명의 inline박스가 삽입(li요소 사이에)되어 공백이 생김. */
+  /* font-size: 1.4rem; */
   text-transform: uppercase; 
+  /* 소 -> 대문자 */
+
+ }
+ .member li:nth-child(n+2)::before{
+   /* ()는 구조선택자 */
+   content: ":";
+ }
+ .member a{
+   padding: 5px 10px;
+   
+   
+   /* a태그 기준으로 패딩값을 줌. */
+ }
+.menu{
+   display: flex;
+   height: 47px;
+   align-items: center;
+   background: linear-gradient(to bottom, #ef4507 0%,#ef4507 36%,#ef4507 65%,#bf6e4e 100%);
+   background-color: #ef4507;
+   border-top: 2px solid #000;
+   border-radius: 0 0 5px 5px;
+   margin-top: 10px;
+   padding-left: 225px;
 }
-.member li:nth-child(n+2)::before{
-  content: ":";
+.menu-item{
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  /* flex-basis: 200px;
+  flex-grow: 0;
+  flex-shrink: 1; */
+  flex: 1 1 auto;
+  text-align: center;
+  /* flex-grow 동작 원리 : 56.170731707 기존 px 더 추가됨.*/
+  position: relative;
 }
-.member a{
-  padding: 5px 10px;
+.menu-item-text{
+   
+   margin: 0 10px 10px 0;
+   color: #fff;
+   font-weight: 700;
+   font-size: 1.6rem;
+   text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+ }
+.sub-menu{
+  position: absolute;
+  top: 35px;
+  white-space: nowrap;
+  display: none;
 }
+.sub-menu:hover{
+  cursor: pointer;
+}
+.sub-menu li{
+  display: inline-block;
+}
+.sub-menu a{
+  display: inline-block;
+  padding: 8px 5px 10px 0;
+  margin-right: 10px;
+
+}
+.sub-menu a::before{
+  font-family: "fontello";
+  content: '\f192';
+}
+.sub-menu a:hover:before{
+   content: '\e800';
+}
+/* 메인 메뉴 */
 .visual{
   background-color:lime;
   height: 10vh;  
@@ -88,13 +170,6 @@ h2 {
  justify-content: space-evenly;
  }
 
-
-/* .clearfix{
-  clear:
-} */
-/* rgba -> 투명도조절 */
-/* hsla -> 색조정*/
-/* commit */
   .group{
     height: 20vh;
     /* normal flow 상 그룹3 높이만큼 고정됨. */
