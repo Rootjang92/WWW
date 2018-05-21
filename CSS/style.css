@@ -22,7 +22,7 @@ a{
   text-decoration: none;
 }
 /* 숨김 컨텐츠 */
-.readable-hidden{
+.readable-hidden, legend{
   position: absolute;
   /* left: -9999em; */
   width: 1px;
@@ -40,10 +40,9 @@ html{
 
 body {
   background-color: #FFF;
-  font-size: 16px;
+  font-size: 1.4rem;
   color: #181818;
   font-family: 'spoqa Han Sans';
-  font-size: 1.4rem;
 }
 /* command+/ */
 /* 레이아웃 */
@@ -101,8 +100,6 @@ body {
  }
  .member a{
    padding: 5px 10px;
-   
-   
    /* a태그 기준으로 패딩값을 줌. */
  }
  /* 메인 메뉴 */
@@ -140,9 +137,9 @@ body {
   }
  .menu-item-text{
     line-height: 45px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
     display: block;
     padding: 0 20px;
-    border-left: 2px solid rgba(255, 255, 255, 0.5);
     color: #fff;
     font-weight: 700;
     font-size: 1.6rem;
@@ -160,23 +157,20 @@ body {
    cursor: pointer;
  }
  .sub-menu{
+   display: none;
    position: absolute;
    top: 50px;
-   /* !important : 중요도 올리는 요소 */
    white-space: nowrap;
- }
- /* hover: 상황 선택 */
- .sub-menu:hover{
-   cursor: pointer;
+   /* !important : 중요도 올리는 요소 */
  }
  .sub-menu li{
    display: inline-block;
  }
+ /* hover: 상황 선택 */
  .sub-menu a{
    display: inline-block;
    padding: 8px 5px 10px 0;
    margin-right: 10px;
-
  }
  .sub-menu a::before{
    font-family: "fontello";
@@ -222,7 +216,7 @@ body {
      0%{
        font-size: 12px;
        color: rgba(0, 0, 0, 0);
-       transform: tranlate(0,0);
+       transform: translate(0,0);
        opacity: 1;
      }
      100%{
@@ -250,11 +244,13 @@ body {
   /* background-image: url("images/ani_flower_01.png"),url("images/ani_flower_02.png");
   background-repeat: no-repeat;
   background-position: 0 -10px, 670px 0; */
-  background: url("images/ani_flower_01.png") no-repeat 0 -15px, url("images/ani_flower_02.png") no-repeat 670px 0;
+  background: url("images/ani_flower_01.png") no-repeat 0 -15px, 
+  url("images/ani_flower_02.png") no-repeat 670px 0;
 }
 .visual::after{
   animation-delay: 1s;
-  background: url("images/ani_flower_03.png") no-repeat 300px -15px, url("images/ani_flower_04.png") no-repeat 800px 0;
+  background: url("images/ani_flower_03.png") no-repeat 300px 0, 
+  url("images/ani_flower_04.png") no-repeat 800px 0;
 }
 .visual-text{
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -266,23 +262,21 @@ body {
   animation-play-state: paused;
   animation-timing-function: cubic-bezier(0,-0.46,.83,.67);
   animation-delay: 2s; */
-  animation: textAni 5000ms forwards 3 alternate ease-in-out 2s;
   display: inline-block;
-  opacity: 0;
   position: relative;
   z-index: 10;
+  opacity: 0;
+  animation: textAni 5000ms forwards 3 alternate ease-in-out 2s;
 }
 /* 메인콘텐츠 */
 .main{
-  background-color:skyblue;
+  background-color: white;
   /* 독립적으로 block box를 만듬. */
   padding: 30px 15px;
   border-radius: 15px 15px 0 0;
 }
 .clearfix::after{
   content: "";
-  background-color: black;
-  color: white;
   clear: both;
   display: block;
 }
@@ -293,7 +287,6 @@ body {
 /* hsla -> 색조정*/
 /* commit */
   .group{
-    height: 30vh;
     float: left;
     /* normal flow 상 그룹3 높이만큼 고정됨. */
     margin: 0 15px;
@@ -301,7 +294,7 @@ body {
   .group1{
     background-color: rgba(255,255,255,.5);
     width: 250px;
-    
+    float: left;
   }
   .group2{
     background-color: hsla(120, 20%, 60%, 0.5);
@@ -311,6 +304,156 @@ body {
     background-color: tomato;
     width: 190px;
     }
+    .login{
+      background: radial-gradient(circle at right top, #ea892e, #ce5327);
+      background-color: #ce5327;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 5px 5px 0 0 #aaa;
+    }
+    .login-heading{
+      color: #ff0;
+      font-size: 1.5rem;
+    }
+    .login-form{
+      background-color: white;
+      border-radius: 5px 5px 0 0;
+      padding: 10px 10px 0 10px;
+      margin-top: 10px;
+    }
+    .login-form fieldset{
+      margin: 0;
+      padding: 0 0 10px 0;
+      border: 0;
+      border-bottom: 1px solid #aaa;
+      position: relative;
+    }
+    .login-form [type="email"], .login-form [type="password"]{
+      width: 100px;
+      height: 22px;
+      border: 1px solid #aaa;
+      padding: 1px 1px 1px 5px;
+      /* 입력 상자 클릭시 띄어놓기 */
+    }
+    .user-id{
+      margin-bottom: 6px;
+    }
+    .login-form [for="user-id"], .login-form [for="user-pw"]{
+      display: inline-block;
+      width: 4em;
+    }
+    .sign{
+      background-color: white;
+      border-radius: 0 0 5px 5px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 10px;
+    }
+    .sign a{
+      letter-spacing: -1px;
+      /* 자간 조정 */
+      padding: 5px 0;
+    }
+    .sign .icon-right-open::before{
+      color: #ef4507;
+    }
+    .btn-login{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: 0 solid #aaa;
+      border-radius: 3px;
+      background: #ce5327;
+      color: white;
+      font: inherit;
+    }
+    /* 로그인 for me
+    .login{
+      background-color: orange;
+      box-shadow: 0 15px 15px grey;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .login-heading{
+      color: red;
+      margin: 1em;
+      font-size: 20px;
+    }
+    .login-form {
+      background-color: white;
+      float: left;
+      border-radius: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 5px;
+    }
+    .btn-login {
+      float: left;
+      height: 50px;
+      background-color: orange;
+      border-radius: 5px;
+      border: none;
+      color: white;
+    }
+    .user-id{
+      display: flex;
+      justify-content: flex-start;
+    }
+    .user-pw{
+      display: flex;
+      justify-content: flex-start;
+    } */
+    /* 유효성 검사 배너 */
+    .validation-list{
+      margin-top: 25px;
+    }
+    .validation-list li{
+      margin: 10px 0;
+    }
+    .validation-list a{
+      display: block;
+      background: url("images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-radius: 15px;
+      line-height: 30px;
+      padding-left: 45px;
+    }
+    /* .validation-list a{
+      display: block;
+      background-color: pink;
+      border: 1px solid #aaa;
+      border-radius: 30px;
+      background: url("CSS/images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to top, #eee #ccc);
+      padding: 5px 10px 5px 45px;
+    } */
+    /* 웹 관련 용어 배너 */
+    .term-heading{
+      display: block;
+    }
+    /* .term{
+      border: 1px solid #aaa;
+      background-color: #aaa;
+      border-radius: 5px;
+    }
+    .term-heading{
+      font-weight: 700;
+      font-size: 1.6rem;
+      padding: 15px;
+    }
+    .term-heading-title{
+
+    }
+    .term img{
+      float: left;
+      display: block;
+      padding: 0 0 0 15px;
+    }
+    .term-text::after{
+      content:""
+      
+    } */
+  /* 슬로건 */
 .slogan{
   background-color: blueviolet;
   height: 10vh;
