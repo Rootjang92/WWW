@@ -8,7 +8,8 @@
     <title>webcafe - HTML5, CSS3, accessibility</title> <!--타이틀 중요.-->
     <link rel="shortcut icon" href="images/common/webcafe.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/common/webcafe.png">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
+    <link rel="stylesheet" href="CSS/test.css">
     <!-- <link rel="stylesheet" href="css/flex.css"> -->
     <!-- <link rel="stylesheet" href="css/float.css"> -->
     <!-- link -> tap -> 주소설정하기-->
@@ -40,10 +41,8 @@
                             <li>
                                 <a href="#">활용예제</a>
                             </li>
-                            
-                            
-                        </ul>
-                    </li>
+                    </ul>
+                </li>
                 <li class="menu-item" tableindex="0">
                     <span class="menu-item-text">CSS에 대해</span>
                         <ul class="sub-menu">
@@ -131,17 +130,60 @@
                                 </ul>
                               </li>
                         </ul>
-                    </li>    
+                </li>    
             </ul>
         </nav>
-        
-        
     </header>
     <div class="visual">
         <div class="visual-text">Web Standard &amp; accessibility</div>
     </div>
     <main class="main clearfix">
-        <div class="group group1">GROUP1</div>
+        <div class="group group1">
+            <section class = "login">
+                <h2 class="login-heading">로그인</h2>
+                <form method="POST" action="https://formspree.io/janggeunho7@gmail.com" class="login-form">
+                    <fieldset>
+                        <legend>회원 로그인 폼</legend>
+                        <!-- div.user-id>label[for="user-id"]{아이디}+input#user-id -->
+                        <div class="user-id">
+                            <label for="user-id">아이디</label><input type="email" id="user-id" name="id" required placeholder="ID or Email">
+                        </div>
+                        <div class="user-pw">
+                            <label for="user-pw">비밀번호</label><input type="password" id="user-pw" name="pw" maxlength="8" required placeholder="8자리 이하">
+                        </div>
+                        <button type="submit" class="btn-login">로그인</button>
+                        <!-- label+input#user-id -->
+                        <!-- <label for="user-id">아이디</label>
+                        <input type="text" id="user-id"> -->
+                         <!-- 공백 문자 들어감 -> 생각해서 디자인 할 것. -->
+                    </fieldset>
+                
+                </form>
+                <ul class="sign">
+                    <li><a href="#" class="icon-right-open">회원가입</a></li>
+                    <li><a href="#" class="icon-right-open">아이디/비밀번호 찾기</a></li>
+                </ul>
+            </section>
+            <h2 class="readable-hidden">유효성 검사 배너</h2>
+            <ul class="validation-list">
+                <li>
+                    <a href="https://validator.w3.org/" target="_blank" title="마크업 유효성 검사 사이트로 이동">W3C Markup Validation</a>
+                </li>
+                <li>
+                    <a href="https://jigsaw.w3.org/css-validator/" target="_blank" title="CSS 유효성 검사 사이트로 이동">W3C css Validation</a>
+                </li>
+            </ul>
+            <section class = "term">
+                <h2 class="term-heading">웹 관련 용어</h2>
+                <dl class="term-list">
+                    <dt class="term-list-subject">웹 표준 이란?</dt>
+                    <dd class="term-list-thumbnail">
+                     <img src="images/web_standards.gif" alt="웹 표준 로고">
+                    </dd>
+                    <dd class="term-list-brief">W3C 단체에서 규정한 웹 기술 사양에 대한 규칙을 말하며 표준 규격은...</dd>
+                </dl>
+            </section>
+        </div>
         <div class="group group2">GROUP2</div>
         <div class="group group3">GROUP3</div> <!-- div group.group${group$}-->
         <!-- <div class="clearfix"></div> 가짜영역을 만들어 margin-->
