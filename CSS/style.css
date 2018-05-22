@@ -297,7 +297,7 @@ body {
     float: left;
   }
   .group2{
-    background-color: hsla(120, 20%, 60%, 0.5);
+    /* background-color: hsla(120, 20%, 60%, 0.5); */
     width: 380px;
   }
   .group3{
@@ -428,31 +428,230 @@ body {
       padding: 5px 10px 5px 45px;
     } */
     /* 웹 관련 용어 배너 */
+    .term{
+      background: linear-gradient(to bottom, #eee, #ccc);
+      margin-top: 20px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      padding: 15px;
+    }
     .term-heading{
+      font-size: 1.5rem;
+    }
+    .term-list{
+      margin: 10px 0 0 0;
+    }
+    .term-list-subject{
+      color: #296897;
+      margin-bottom: 5px;
+    }
+    .term-list-subject, .term-list-brief{
+      float: right;
+      width: 145px;
+    }
+    .term-list-thumbnail{
+      margin: 0;
+      float: left;
+    }
+    .term-list-thumbnail img{
       display: block;
     }
+    .term-list-brief{
+      margin: 0;
+    }
+    /* 썸네일 구조 선택자 활용. */
+    /* .term-list :nth-child(4), .term-list :nth-child(5){
+      margin-top: 10px;
+    }
+    .term-list :nth-child(4), .term-list :nth-child(6){
+      float: left;
+      width: 145px;
+    }
+    .term-list :nth-child(5){
+      margin: 0;
+      float: right;
+    }
+    .term-list :nth-child(5) img{
+      display: block;
+    } */
     /* .term{
+      background: linear-gradient(to bottom, #eee, #ccc);
       border: 1px solid #aaa;
-      background-color: #aaa;
       border-radius: 5px;
+      padding: 15px;
+      margin-top: 20px;
     }
     .term-heading{
       font-weight: 700;
       font-size: 1.6rem;
-      padding: 15px;
     }
-    .term-heading-title{
-
+    .term-list-subject{
+      color: navy;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
     }
-    .term img{
-      float: left;
+    .term-list-subject, .term-list-brief{
+      float: right;
+      width: 145px;
+    }
+    .term-list-thumbnail img{
       display: block;
-      padding: 0 0 0 15px;
     }
-    .term-text::after{
-      content:""
-      
+    .term-list-thumbnail{
+      float: left;
+      margin-top: 15px;
+      margin-left: 5px;
+    }
+    .term-list::after{
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .term-list-brief{
+      margin: 0;
     } */
+    /* 검색 폼 */
+    .search-form{
+      background: linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-bottom: 0;
+      border-radius: 15px 15px 0 0;
+      padding: 15px 25px 10px;
+    }
+    .search-form fieldset{
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .search-form-wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-form [type="search"]{
+      width: 200px;
+      height: 24px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      padding: 1px 1px 1px 5px;
+    }
+    .btn-search{
+      background: #333;
+      color: #fff;
+      font: inherit;
+      padding: 0 10px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      height: 24px;
+    }
+    /* .search-flex{
+      display: flex;
+      justify-content: space-between;
+    }
+    .search-form{
+      background: linear-gradient(to top, #eee, #aaa);
+      border:1px solid #aaa;
+      border-bottom-color: #fff;
+      border-radius: 15px 15px 0 0;
+      padding: 20px 25px 10px;
+    }
+    .legend, .readable-hidden{
+      position: absolute;
+      left: -9999em;
+    }
+    .icon-search, .search, .btn-search{
+      vertical-align: middle;
+    }
+    .icon-search{
+      padding: 3px 0 0 0;
+    }
+    .search{
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      padding: 0 0 0 5px;
+      height: 22px;
+      width: 190px;
+    }
+    .btn-search{
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      padding: 1px 10px;
+      color: #fff;
+      background: linear-gradient(to bottom, #333, #999);
+      font-size: 1.2rem;
+      height: 22px;
+    } */
+    /* 공지사항,자료실 */
+    .board{
+      margin-top: 20px;
+      position: relative;
+    }
+    .notice-heading{
+      background: linear-gradient(to bottom, #eee, #aaa);
+      cursor: pointer;
+      border: 1px solid #aaa;
+      border-radius: 5px 5px 0 0;
+      padding: 5px 15px;
+      color: #666;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .notice-list, .pds-list{
+      padding-top: 45px;
+      min-width: 150px;
+    }
+    .notice-list li, .pds-list li{
+      margin: 10px 0;
+    }
+    .notice-list li::before, .pds-list li::before{
+      content: "i";
+      position: relative;
+      top: -2px;
+    }
+    .notice-list a, .pds-list a{
+      width: 285px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* 잘린 텍스트를 생략 부호로 표시함. */
+    }
+    .is-act .tab{
+      font-weight: bold;
+      background: #fff;
+      border-color: #ea892e #ea892e #fff #ea892e;
+      color: #ea892e;
+    }
+    .tab{
+      background: linear-gradient(to bottom, #eee, #aaa);
+      cursor: pointer;
+      border: 1px solid #aaa;
+      border-radius: 5px 5px 0 0;
+      padding: 5px 15px;
+      color: #666;
+      position: absolute;
+      top: 0;
+      font: inherit;
+    }
+    .notice-list, .pds-list, .notice-more, .pds-more{
+      display: none;
+    }
+    .is-act .notice-list, .is-act .pds-list, .is-act .notice-more, .is-act .pds-more{
+      display: block;
+    }
+    .notice-more, .pds-more{
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      padding: 8px;
+    }
+    .pds-heading{
+      left: 83px;
+      cursor: pointer;
+    }
   /* 슬로건 */
 .slogan{
   background-color: blueviolet;
