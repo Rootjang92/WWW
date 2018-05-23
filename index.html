@@ -8,11 +8,14 @@
     <title>webcafe - HTML5, CSS3, accessibility</title> <!--타이틀 중요.-->
     <link rel="shortcut icon" href="images/common/webcafe.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/common/webcafe.png">
-    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
-    <link rel="stylesheet" href="CSS/test.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- <link rel="stylesheet" href="CSS/grid.css"> -->
+    <!-- <link rel="stylesheet" href="CSS/test.css"> -->
     <!-- <link rel="stylesheet" href="css/flex.css"> -->
     <!-- <link rel="stylesheet" href="css/float.css"> -->
     <!-- link -> tap -> 주소설정하기-->
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/menu-tab.js" defer></script>
 </head>
 <body>
    <div class="wrapper">
@@ -257,15 +260,82 @@
                         <a href="#" class="icon-plus pds-more" aria-labelledby="pds-heading" target="_blank">더 보기</a> 
                 </section>
             </div>
+            <section class="news">
+              <h2 class="news-heading">새소식</h2>
+              <a href="#" class="news-link">
+              <article class="news-item">
+                  <h3 class="news-item-heading">W3C 사이트가 리뉴얼되었습니다.</h3>
+                  <time class="news-item-date" datetime="2018-05-23">2018.05.23</time>
+                  <p class="news-item-brief">
+                    디자인 및 다양한 view환경을 고려하여 구성되어 있으며, 기존보다 최신 정보 및 개발자를 위한 기술 가이드도 찾기 쉽도록 구성되어 있습니다.
+                  </p>
+                  <figure class="news-item-thumbnail">
+                    <img src="images/news.gif" alt="HTML5를 발표하면서 새롭게 리뉴얼 된 W3C 공식 웹사이트">
+                    <figcaption>
+                      W3C 리뉴얼
+                    </figcaption>
+                  </figure>
+                </article>
+              </a>
+              <a href="#" class="icon-plus news-more" title="새소식" target="_blank">더보기</a>
+            </section>
         </div>
-        <div class="group group3">GROUP3</div> <!-- div group.group${group$}-->
+        <div class="group group3">
+          <div class="event-related">
+            <section class="event">
+              <h2 class="event-heading">신규 <span>이벤트</span></h2>
+              <div id="event-detail">
+                <p class="event-thumbnail">
+                  <img src="images/free_gift.gif" alt="이벤트 경품 : 웹표준 핵심 가이드북 2 HTML5+CSS3 도서 증정">
+                </p>
+                <p class="event-brief">
+                  <em>웹표준 핵심 가이드북 2 출시!</em> 선착순 500명 한정으로 증정.
+                </p>
+              </div>
+              <div class="btn-event">
+                <button type="button" class="btn-event-prev">이전 이벤트 보기</button>
+                <button type="button" class="btn-event-next">다음 이벤트 보기</button>
+              </div>
+            </section>
+            <section class="related">
+                <h2 class="event-heading">관련 <span>사이트</span></h2>
+                <ul class="related-list">
+                  <li>
+                    <a href="#">패스트 캠퍼스</a>
+                  </li>
+                  <li>
+                    <a href="#">W3C</a>
+                  </li>
+                  <li>
+                    <a href="#">웹접근성 연구소</a>
+                  </li>
+                  <li>
+                    <a href="#">CSS Zengarden</a>
+                  </li>
+                  <li>
+                    <a href="#">MDN</a>
+                  </li>
+                </ul>
+            </section>
+          </div>
+          <section class="favorite">
+            <h2 class="favorite-heading">인기 <span>사이트</span></h2>
+            <ol class="favorite-list">
+              <li><a href="#">W3C</a> <em class="up">상승</em></li>
+              <li><a href="#">CSS Zengarden</a> <em class="up">하락</em></li>
+              <li><a href="#">Web Standards</a> <em class="up">멈춤</em></li>
+              <li><a href="#">MDN</a> <em class="up">상승</em></li>
+            </ol>
+            <a href="#" class="favorite-more icon-plus" title="인기 사이트" target="_blank">더보기</a>
+          </section>
+        </div> <!-- div group.group${group$}-->
         <!-- <div class="clearfix"></div> 가짜영역을 만들어 margin-->
     </main>
-    <article class="slogan"> <!-- user agent stylesheet-->
-        <h2 class="slogan-heading">
+    <article class="slogan"> <!-- user agent stylesheet -->
+         <h2 class="slogan-heading">
             슬로건
         </h2>
-    </article> <!-- 개별 줄 래핑으로 한번에 제목 설정 / 코드 검사하기.-->
+    </article> <!-- 개별 줄 래핑으로 한번에 제목 설정 / 코드 검사하기. -->
   <div class="footer-bg">
       <footer class="footer">푸터</footer>
   </div> 
@@ -273,4 +343,6 @@
   </div> 
 </body>
 </html>
+            
+              
                         
