@@ -1,0 +1,829 @@
+@charset "utf-8";
+/* 인코딩은 무조건 첫줄에 */
+@import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+@import url("normalize.css");
+@import url("fontello.css");
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+/* normalize 파일에서 생긴 여백을 없애주기 위해 설정. */
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+  padding: 0;
+}
+/* 목록 스타일 없애기 list-style-type */
+ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+/* 숨김 컨텐츠 */
+.readable-hidden, legend{
+  position: absolute;
+  /* left: -9999em; */
+  width: 1px;
+  height: 1px;
+  /* 크기0은  위험한 작업 */
+  clip: rect(0, 0, 0, 0);
+  /* cutting처리 */
+  margin: -1px;
+  /* 다른 브라우저에서도 작동하도록 마진값. */
+  overflow: hidden;
+}
+html{
+  font-size: 10px;
+}
+
+body {
+  background-color: #FFF;
+  font-size: 1.4rem;
+  color: #181818;
+  font-family: 'spoqa Han Sans';
+}
+/* command+/ */
+/* 레이아웃 */
+.wrapper{
+  /* 해당요소 선택은  마침표 클래스속성값이 wrapper인 것으 찾음.*/
+  background-color: silver;
+  background-image: url(images/bg_flower.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  
+  /* default는 scroll 값.(attachmemt) */
+  /* border top,right,bottom,left / style / color를 축약 - 단축표기법 */
+  /* solid : 실선  */ 
+  /* 50은 위, 10은 우, 100은 아래 200은 왼쪽 -> 시계방향*/
+  /* auto : 남은 여백을 자동으로 설정한다. -> 정렬한 것 처럼 보임 */
+}
+/* grouping은 컴마로 */
+.header, .visual, .main, .slogan, .footer{
+  width: 940px;
+  margin: 0 auto;
+}
+.header{
+  background-color: #fff;
+  /* viewprot height : vh : 화면에 보이는 크기 */
+  padding: 0 30px 40px;
+  position: relative;
+  border-radius: 0 0 15px 15px;
+}
+/* logo */
+.logo{
+  position: absolute;
+  top: 45px;
+  left: 65px;
+}
+/* 멤버 링크 */
+.member{
+  text-align: right;
+  font-size: 0;
+  padding:10px 0;
+  position: relative;
+  right: -10px;
+}
+.member li{
+  display: inline-block;
+  /* inline-block : 보이는 건 inline, 성격은 block */
+  /* float와 차이 : 익명의 inline박스가 삽입(li요소 사이에)되어 공백이 생김. */
+  font-size: 1.4rem;
+  text-transform: uppercase; 
+  /* 소 -> 대문자 */
+
+ }
+ .member li:nth-child(n+2)::before{
+   /* ()는 구조선택자 */
+   content: ":";
+ }
+ .member a{
+   padding: 5px 10px;
+   /* a태그 기준으로 패딩값을 줌. */
+ }
+ /* 메인 메뉴 */
+ .menu{
+   background: linear-gradient(to bottom, #ef4507 0%,#ef4507 36%,#ef4507 65%,#bf6e4e 100%);
+   background-color: #ef4507;
+   border-top: 2px solid #000;
+   border-radius: 0 0 5px 5px;
+   padding-left: 225px;
+   height: 47px;
+   
+   /* x축 / y축 */
+   /* border-bottom-right-radius: 100px 50px;
+   border-bottom-left-radius: 100px 50px; */
+   /* box-shadow: 0 20px 0 0 #000; */
+  
+   
+   
+   /* background element's */
+   /* background-image: linear-gradient(-45deg, red 0%, green 30%, blue 100%); */
+   /* background-image: repeating-linear-gradient(-45deg, red 0, red 50px, green 50px, green 100px); */
+   /* background-color: yellow
+   background-image: url("images/ani_flower_03.png");
+   background-repeat: no-repeat;
+   background-position: 50% 30%;
+   background-size: 200px 200px; */
+   /* background: yellow url("images/ani_flower_03.png") no-repeat 50% 30% /200px 200px; */
+   /* outline: 10px dashed blue; */
+   /* box-shadow: 0 -5px 0 0 green; */
+   /* 배경 */
+ }
+ .menu-item{
+   float: left;
+   position: relative;
+  }
+ .menu-item-text{
+    line-height: 45px;
+    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 0 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000;
+ }
+ /* 글자에 마우스 대면 언더라인 생기게 하기. */
+ .menu-item-text:hover::after{
+   content: "";
+   background-color: #000;
+   display: block;
+   height: 2px;
+ }
+ .menu-item-text:hover{
+   color: #ff0;
+   cursor: pointer;
+ }
+ .sub-menu{
+   display: none;
+   position: absolute;
+   top: 50px;
+   white-space: nowrap;
+   /* !important : 중요도 올리는 요소 */
+ }
+ .sub-menu li{
+   display: inline-block;
+ }
+ /* hover: 상황 선택 */
+ .sub-menu a{
+   display: inline-block;
+   padding: 8px 5px 10px 0;
+   margin-right: 10px;
+ }
+ .sub-menu a::before{
+   font-family: "fontello";
+   content: '\f192';
+ }
+ .sub-menu a:hover:before{
+    content: '\e800';
+ }
+ .menu-item:nth-child(1) .sub-menu{
+   display: none;
+   left: 0;
+ }
+ .menu-item:nth-child(2) .sub-menu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(3) .sub-menu{
+  display: none;
+  left: 0;
+}
+.menu-item:nth-child(4) .sub-menu{
+  display: none;
+  right: 0;
+}
+.menu-item:nth-child(5) .sub-menu{
+  display: none;
+  right: 0;
+}
+.menu-item:nth-child(6) .sub-menu{
+  display: none;
+  right: 0;
+}
+ /* 비주얼 */
+ @keyframes flowerAni{
+   0%{
+     opacity: 1;
+   }
+   100%{
+     opacity: 0;
+   }
+ }
+ @keyframes textAni {
+     0%{
+       font-size: 12px;
+       color: rgba(0, 0, 0, 0);
+       transform: translate(0,0);
+       opacity: 1;
+     }
+     100%{
+       font-size: 24px;
+       color: rgba(0, 0, 0, 1);
+       transform: translate(400px,75px);
+       opacity: 1;
+     }
+     /* 이동하기 : top,left지정 /  position: absolute 지정 / padding지정 / width지정 */
+    }
+.visual{
+  height: 120px;
+  position: relative;
+}
+.visual::before, .visual::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: flowerAni 2s infinite alternate;
+}
+.visual::before{
+  /* background-image: url("images/ani_flower_01.png"),url("images/ani_flower_02.png");
+  background-repeat: no-repeat;
+  background-position: 0 -10px, 670px 0; */
+  background: url("images/ani_flower_01.png") no-repeat 0 -15px, 
+  url("images/ani_flower_02.png") no-repeat 670px 0;
+}
+.visual::after{
+  animation-delay: 1s;
+  background: url("images/ani_flower_03.png") no-repeat 300px 0, 
+  url("images/ani_flower_04.png") no-repeat 800px 0;
+}
+.visual-text{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* animation-name: textAni;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+  animation-timing-function: cubic-bezier(0,-0.46,.83,.67);
+  animation-delay: 2s; */
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: textAni 5000ms forwards 3 alternate ease-in-out 2s;
+}
+/* 메인콘텐츠 */
+.main{
+  background-color: white;
+  /* 독립적으로 block box를 만듬. */
+  padding: 30px 15px;
+  border-radius: 15px 15px 0 0;
+}
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
+}
+/* .clearfix{
+  clear:
+} */
+/* rgba -> 투명도조절 */
+/* hsla -> 색조정*/
+/* commit */
+  .group{
+    float: left;
+    /* normal flow 상 그룹3 높이만큼 고정됨. */
+    margin: 0 15px;
+  }
+  .group1{
+    background-color: rgba(255,255,255,.5);
+    width: 250px;
+    float: left;
+  }
+  .group2{
+    /* background-color: hsla(120, 20%, 60%, 0.5); */
+    width: 380px;
+  }
+  .group3{
+    background-color: tomato;
+    width: 190px;
+    }
+    .login{
+      background: radial-gradient(circle at right top, #ea892e, #ce5327);
+      background-color: #ce5327;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 5px 5px 0 0 #aaa;
+    }
+    .login-heading{
+      color: #ff0;
+      font-size: 1.5rem;
+    }
+    .login-form{
+      background-color: white;
+      border-radius: 5px 5px 0 0;
+      padding: 10px 10px 0 10px;
+      margin-top: 10px;
+    }
+    .login-form fieldset{
+      margin: 0;
+      padding: 0 0 10px 0;
+      border: 0;
+      border-bottom: 1px solid #aaa;
+      position: relative;
+    }
+    .login-form [type="email"], .login-form [type="password"]{
+      width: 100px;
+      height: 22px;
+      border: 1px solid #aaa;
+      padding: 1px 1px 1px 5px;
+      /* 입력 상자 클릭시 띄어놓기 */
+    }
+    .user-id{
+      margin-bottom: 6px;
+    }
+    .login-form [for="user-id"], .login-form [for="user-pw"]{
+      display: inline-block;
+      width: 4em;
+    }
+    .sign{
+      background-color: white;
+      border-radius: 0 0 5px 5px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 10px;
+    }
+    .sign a{
+      letter-spacing: -1px;
+      /* 자간 조정 */
+      padding: 5px 0;
+    }
+    .sign .icon-right-open::before{
+      color: #ef4507;
+    }
+    .btn-login{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: 0 solid #aaa;
+      border-radius: 3px;
+      background: #ce5327;
+      color: white;
+      font: inherit;
+    }
+    /* 로그인 for me
+    .login{
+      background-color: orange;
+      box-shadow: 0 15px 15px grey;
+      border-radius: 5px 5px 5px 5px;
+    }
+    .login-heading{
+      color: red;
+      margin: 1em;
+      font-size: 20px;
+    }
+    .login-form {
+      background-color: white;
+      float: left;
+      border-radius: 5px 5px 5px 5px;
+      padding: 5px 5px 5px 5px;
+    }
+    .btn-login {
+      float: left;
+      height: 50px;
+      background-color: orange;
+      border-radius: 5px;
+      border: none;
+      color: white;
+    }
+    .user-id{
+      display: flex;
+      justify-content: flex-start;
+    }
+    .user-pw{
+      display: flex;
+      justify-content: flex-start;
+    } */
+    /* 유효성 검사 배너 */
+    .validation-list{
+      margin-top: 25px;
+    }
+    .validation-list li{
+      margin: 10px 0;
+    }
+    .validation-list a{
+      display: block;
+      background: url("images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-radius: 15px;
+      line-height: 30px;
+      padding-left: 45px;
+    }
+    /* .validation-list a{
+      display: block;
+      background-color: pink;
+      border: 1px solid #aaa;
+      border-radius: 30px;
+      background: url("CSS/images/validation_icon.png") no-repeat 15px 50%, linear-gradient(to top, #eee #ccc);
+      padding: 5px 10px 5px 45px;
+    } */
+    /* 웹 관련 용어 배너 */
+    .term{
+      background: linear-gradient(to bottom, #eee, #ccc);
+      margin-top: 20px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      padding: 15px;
+    }
+    .term-heading{
+      font-size: 1.5rem;
+    }
+    .term-list{
+      margin: 10px 0 0 0;
+    }
+    .term-list-subject{
+      color: #296897;
+      margin-bottom: 5px;
+    }
+    .term-list-subject, .term-list-brief{
+      float: right;
+      width: 145px;
+    }
+    .term-list-thumbnail{
+      margin: 0;
+      float: left;
+    }
+    .term-list-thumbnail img{
+      display: block;
+    }
+    .term-list-brief{
+      margin: 0;
+    }
+    /* 썸네일 구조 선택자 활용. */
+    /* .term-list :nth-child(4), .term-list :nth-child(5){
+      margin-top: 10px;
+    }
+    .term-list :nth-child(4), .term-list :nth-child(6){
+      float: left;
+      width: 145px;
+    }
+    .term-list :nth-child(5){
+      margin: 0;
+      float: right;
+    }
+    .term-list :nth-child(5) img{
+      display: block;
+    } */
+    /* .term{
+      background: linear-gradient(to bottom, #eee, #ccc);
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    .term-heading{
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+    .term-list-subject{
+      color: navy;
+      font-weight: bold;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    .term-list-subject, .term-list-brief{
+      float: right;
+      width: 145px;
+    }
+    .term-list-thumbnail img{
+      display: block;
+    }
+    .term-list-thumbnail{
+      float: left;
+      margin-top: 15px;
+      margin-left: 5px;
+    }
+    .term-list::after{
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .term-list-brief{
+      margin: 0;
+    } */
+    /* 검색 폼 */
+    .search-form{
+      background: linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-bottom: 0;
+      border-radius: 15px 15px 0 0;
+      padding: 15px 25px 10px;
+    }
+    .search-form fieldset{
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    .search-form-wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .search-form [type="search"]{
+      width: 200px;
+      height: 24px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      padding: 1px 1px 1px 5px;
+    }
+    .btn-search{
+      background: #333;
+      color: #fff;
+      font: inherit;
+      padding: 0 10px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      height: 24px;
+    }
+    /* .search-flex{
+      display: flex;
+      justify-content: space-between;
+    }
+    .search-form{
+      background: linear-gradient(to top, #eee, #aaa);
+      border:1px solid #aaa;
+      border-bottom-color: #fff;
+      border-radius: 15px 15px 0 0;
+      padding: 20px 25px 10px;
+    }
+    .legend, .readable-hidden{
+      position: absolute;
+      left: -9999em;
+    }
+    .icon-search, .search, .btn-search{
+      vertical-align: middle;
+    }
+    .icon-search{
+      padding: 3px 0 0 0;
+    }
+    .search{
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      padding: 0 0 0 5px;
+      height: 22px;
+      width: 190px;
+    }
+    .btn-search{
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      padding: 1px 10px;
+      color: #fff;
+      background: linear-gradient(to bottom, #333, #999);
+      font-size: 1.2rem;
+      height: 22px;
+    } */
+    /* 공지사항,자료실 */
+    .board{
+      margin-top: 20px;
+      position: relative;
+    }
+    .tab{
+      border: 1px solid #aaa;
+      border-radius: 5px 5px 0 0;
+      background: linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      color: #666;
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 5px 10px;
+      position: absolute;
+      top: 0;
+      cursor: pointer;
+    }
+    .pds-heading{
+      left: 73px;
+      /* tab에 left값을 주지 않음. */
+    }
+    .is-act .tab{
+      background: #fff;
+      border-color: #ce5327 #ce5327 #fff #ce5327;
+      color: #ce5327;
+    }
+    .notice-list, .notice-more, .pds-list, .pds-more{
+      display: none;
+    }
+    .is-act .notice-list, .is-act .notice-more, .is-act .pds-list, .is-act .pds-more{
+      display: block;
+    }
+    .notice-list, .pds-list{
+      padding-top: 45px;
+    }
+    .notice-list li, .pds-list li{
+      margin-bottom: 10px;
+      /* display: flex;
+      justify-content: space-between; */
+    }
+    .notice-list li::after, .pds-list li::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .notice-list li::before, .pds-list li::before{
+      margin-top: 2px;
+      float: left;
+    }
+    .notice-list a, .pds-list a{
+      width: calc(100% - 105px);
+      float: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .notice-list time, .pds-list time{
+      float: right;
+      margin-left: auto;
+    }
+    .notice-more::before, .pds-more::before{
+      color: hsla(110, 40%, 30%, 1);
+    }
+    .notice-more, .pds-more{
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      padding: 8px;
+    }
+    /* .board{
+      margin-top: 20px;
+      position: relative;
+    }
+    .notice-heading{
+      background: linear-gradient(to bottom, #eee, #aaa);
+      cursor: pointer;
+      border: 1px solid #aaa;
+      border-radius: 5px 5px 0 0;
+      padding: 5px 15px;
+      color: #666;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .notice-list, .pds-list{
+      padding-top: 45px;
+      min-width: 150px;
+    }
+    .notice-list li, .pds-list li{
+      margin: 10px 0;
+    }
+    .notice-list li::before, .pds-list li::before{
+      content: "i";
+      position: relative;
+      top: -2px;
+    }
+    .notice-list a, .pds-list a{
+      width: 285px;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* 잘린 텍스트를 생략 부호로 표시함. */
+    
+    /* .is-act .tab{
+      font-weight: bold;
+      background: #fff;
+      border-color: #ea892e #ea892e #fff #ea892e;
+      color: #ea892e;
+    }
+    .tab{
+      background: linear-gradient(to bottom, #eee, #aaa);
+      cursor: pointer;
+      border: 1px solid #aaa;
+      border-radius: 5px 5px 0 0;
+      padding: 5px 15px;
+      color: #666;
+      position: absolute;
+      top: 0;
+      font: inherit;
+    }
+    .notice-list, .pds-list, .notice-more, .pds-more{
+      display: none;
+    }
+    .is-act .notice-list, .is-act .pds-list, .is-act .notice-more, .is-act .pds-more{
+      display: block;
+    }
+    .notice-more, .pds-more{
+      position: absolute;
+      top: -8px;
+      right: -5px;
+      padding: 10px;
+    }
+    .pds-heading{
+      left: 83px;
+      cursor: pointer;
+    }  */
+    /* 새소식 */
+
+    .news{
+      position: relative;
+      margin-top: 20px;
+    }
+    .news::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 30px;
+      height: 1px;
+      width: 80%;
+      background: linear-gradient(to right, #aaa, #fff);
+      /* 부모상자 크기만큼 레이어 설정. */
+    }
+    .news-heading{
+      font-size: 1.5rem;
+      color: #ce5327;
+    }
+    .news-link{
+      display: block;
+      outline-offset: 5px;
+    }
+    .news-item{
+      background: yellow;
+      margin-top: 35px;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 120px 15px 1fr;
+          grid-template-columns: 120px 15px 1fr;
+      -ms-grid-rows: auto auto auto;
+          grid-template-rows: auto auto auto;
+      /* grid-column-gap: 15px;
+      grid-template-areas: "thumbnail heading"
+                           "thumbnail date"
+                           "thumbnail brief"; */
+    }
+    .news-item-heading{
+      background: pink;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 1;
+      grid-column: 3/4;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
+      grid-row: 1/2;
+      /* grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2; */
+      /* grid-area: heading; */
+    }
+    .news-item-date{
+      background: lime;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 1;
+      grid-column: 3/4;
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      grid-row: 2/3;
+      /* grid-area: date; */
+    }
+    .news-item-brief{
+      background: orange;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 1;
+      grid-column: 3/4;
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+      grid-row: 3/4;
+      /* grid-area: brief; */
+    }
+    .news-item-thumbnail{
+      background: teal;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 1;
+      grid-column: 1/2;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 3;
+      grid-row: 1/4;
+      /* grid-area: thumbnail; */
+      margin: 0;
+    .news-more{
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      padding: 8px;
+    }
+    .news-more::before{
+      color: hsla(110, 40%, 30%, 1)
+    }
+    
+  /* 슬로건 */
+.slogan{
+  background-color: blueviolet;
+  height: 10vh;
+  clear: both;
+  /* clear : float해제 강제로 margin을 추가하는 개념.*/
+}
+.footer-bg{
+  background-color: orange;
+}
+.footer{
+  background-color: silver;
+  height: 10vh;
+}
