@@ -5,6 +5,7 @@
 @import url("fontello.css");
 *, *::before, *::after{
   box-sizing: border-box;
+  /* font: inherit; */
 }
 /* normalize 파일에서 생긴 여백을 없애주기 위해 설정. */
 h1, h2, h3, h4, h5, h6{
@@ -721,7 +722,6 @@ body {
       cursor: pointer;
     }  */
     /* 새소식 */
-
     .news{
       position: relative;
       margin-top: 20px;
@@ -776,24 +776,328 @@ body {
     }
     /* 신규 이벤트 및 관련 사이트*/
     .event-related{
-      background: yellow;
+      background: linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      padding: 10px;
     }
+    .event{
+      position: relative;
+      border-bottom: 1px solid #aaa;
+    }
+    .event-heading, .related-heading{
+      font-size: 1.5rem;
+    }
+    .event-heading span, .related-heading span{
+      color: #ce5327;
+    }
+    .event-thumbnail, .event-brief{
+      margin: 10px 0;
+    }
+    .event-thumbnail img{
+      box-shadow: 5px 5px 0 0 #aaa;
+      border: 1px solid #999;
+    }
+    .event-brief em{
+      font-style: normal;
+    }
+    .btn-event{
+      height: 18px;
+      overflow: hidden;
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      padding: 2px;
+    }
+    .btn-event-prev, .btn-event-next{
+      width: 19px;
+      border: 0;
+      padding: 0;
+      text-indent: 50px;
+      /* 첫 줄 들여쓰기 */
+      white-space: nowrap;
+      background-image: url("images/back_forward.png"); 
+      background-repeat: no-repeat;
+    }
+    .btn-event-next{
+      background-position: 100% 0;
+    }
+    /* .btn-event{
+      height: 18px;
+      position: absolute;
+      top: 3px;
+      right: 0;
+    }
+    .btn-event-prev, .btn-event-next {
+      padding: 18px 0 0 0;
+      border: 0;
+      bottom: 0;
+      width: 19px;
+      height: 100%;
+      overflow: hidden;
+      background-image: url("CSS/images/back_forward.png") no-repeat !important;
+    } */
+    /* .btn-event-prev::after, .btn-event-next::after{
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-image: url("CSS/images/back_forward.png");
+    } */
+    .related{
+      margin-top: 10px;
+    }
+    .related-list{
+      margin-top: 10px;
+      background: #fff;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      height: 27px;
+      overflow: hidden;
+      transition-property: all;
+      transition-duration: 500ms;
+    }
+    .related-list a{
+      display: block;
+      line-height: 25px;
+      text-indent: 25px;
+    }
+    .related-list:hover{
+      height: 147px;
+      padding: 10px 0;
+    }
+    
     /* 인기 사이트 */
     .favorite{
-      background: pink;
+      background: linear-gradient(to bottom, #eee, #ccc);
+      background-color: #ccc;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      padding: 10px 10px 5px 10px;
       margin-top: 20px;
+      position: relative;
     }
+    .favorite-heading{
+      font-size: 1.5rem;
+    }
+    .favorite-heading span{
+      color: #ce5327;
+    } 
+    .favorite-more{
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      padding: 8px;
+    }
+    .favorite-list{
+      padding: 0;
+      overflow: hidden;
+      counter-reset: number;
+      margin: 0;
+    }
+    .favorite-list li{
+      counter-increment: number;
+      margin: 5px 0;
+      /* position: relative; */
+      display: flex;
+      align-items: center;
+    }
+    .favorite-list li::before{
+      content: counter(number);
+      color: #fff;
+      background: #999;
+      padding: 0 5px;
+      border-radius: 2px;
+      font-size: 1.1rem;
+      margin-right: 5px;
+    }
+    .up, .stop, .down{
+      width: 9px;
+      height: 0;
+      padding-top: 11px;
+      overflow: hidden;
+      background-image: url("images/rank.png");
+      background-repeat: no-repeat;
+      margin-left: auto;
+      /* float: right; */
+      /* position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%); */
+    }
+    .stop{
+      background-position: 0 50%;
+    }
+    .down{
+      background-position: 0 100%;
+    }
+    /* .favorite-list em{
+      background: url("images/rank.png") no-repeat;
+    } */
+    .favorite-more::before{
+      color: hsla(110, 40%, 30%, 1);
+    }
+    /* .favorite-list{
+      background-color: yellow;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .favorite-list li{
+      counter-increment: number;
+      margin:5px 0;
+      position: relative;
+    }
+    .favorite-list li:nth-child(1){
+      margin-top: 0;
+    }
+    .favorite-list li::before{
+      background: #999;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 3px;
+      margin-right: 5px;
+      content: counter(number, decimal);
+    }
+    .up{
+      width: 9px;
+      height: 11px;
+      background-image: url("images/rank.png");
+      background-repeat: no-repeat;
+    }
+    .up em{
+      width: 9px;
+      height: 11px;
+      overflow: hidden;
+      position: absolute;
+     } */
   /* 슬로건 */
-.slogan{
-  background-color: blueviolet;
-  height: 10vh;
-  clear: both;
-  /* clear : float해제 강제로 margin을 추가하는 개념.*/
+  .slogan{
+    padding: 0 100px 0 180px;
+    position: relative;
+  }
+  .slogan-heading{
+    width: 110px;
+    height: 83px;
+    line-height: 83px;
+    text-align: center;
+    font-size: 1em;
+    position: absolute;
+    left: 35px;
+    bottom: -35px;
+  }
+  .slogan-heading::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/coffee.png") no-repeat;
+  }
+  .slogan-content{
+    font-size: 1.5rem;
+    color: #987633;
+  }
+  .slogan-content q::before{
+    font-size: 3.5rem;
+    
+  }
+  .slogan-content q::after{
+    content: "";  
+  }
+/* .slogan{
+  background-color: yellow;
+  position: relative;
 }
+.slogan-heading{
+  position: absolute;
+  left: 35px;
+  bottom: -35px;
+  padding-top: 85px;
+  width: 110px;
+  height: 85px;
+  overflow: hidden;
+  background: url("images/coffee.png") no-repeat;
+}
+.slogan-content{
+  margin: 15px 80px 15px 180px;
+  color: #000;
+}
+.readable-hidden{
+  position: absolute;
+  left: -9999em;
+}
+.slogan-content q{
+  font-weight: bold;
+} */
+/* 푸터 */
 .footer-bg{
-  background-color: orange;
+  background: linear-gradient(to bottom, #aaa 0%, #ccc 25%, #fff 65%, #fff 100%);
 }
 .footer{
-  background-color: silver;
-  height: 10vh;
+  position: relative;
+  padding: 10px 100px 10px 160px;
 }
+/* 푸터 로고 */
+ .footer-logo{
+   position: absolute;
+   top: 35px;
+   left: 35px;
+ }
+/* 가이드 */
+.guide{
+  background: #7b8385;
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2px 0;
+}
+.guide a{
+  /* font-variant: small-caps; */
+  text-transform: uppercase;
+  display: block;
+  padding: 8px 0;
+}
+/* 주소 및 저작권 */
+.address{
+  font-style: normal;
+  margin-top: 10px;
+}
+/* html5 & css3 로고 */
+.badge{
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+/* .footer{
+  position: relative;
+  padding: 10px 0;
+}
+.footer-logo{
+  position: absolute;
+  top: 25px;
+  left: 35px;
+}
+.guide{
+  background: #7b7b7b;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+.guide ul{
+  list-style: none;
+}
+.guide, .address, .copyright{
+  margin: 10px 100px 10px 150px;
+}
+.address{
+  font-style: normal;
+  font-size: 1.2rem;
+}
+.badge{
+  position: absolute;
+  top: 0;
+  right: 0;
+} */
